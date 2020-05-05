@@ -151,7 +151,7 @@
       <string>Save</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="addButton_3">
+    <widget class="QPushButton" name="loadButton">
      <property name="geometry">
       <rect>
        <x>165</x>
