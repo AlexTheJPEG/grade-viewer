@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'main.ui'
+# Form implementation generated from reading ui file 'c:\Users\alex8\Documents\Coding\python\grade-viewer\main.ui'
 #
 # Created by: PyQt5 UI code generator 5.13.2
 #
@@ -36,7 +36,7 @@ class Ui_MainWindow(object):
         self.summary.setGeometry(QtCore.QRect(10, 310, 461, 55))
         self.summary.setObjectName("summary")
         self.addButton = QtWidgets.QPushButton(self.gradesBox)
-        self.addButton.setGeometry(QtCore.QRect(10, 370, 151, 31))
+        self.addButton.setGeometry(QtCore.QRect(10, 370, 141, 31))
         self.addButton.setObjectName("addButton")
         self.removeButton = QtWidgets.QPushButton(self.gradesBox)
         self.removeButton.setGeometry(QtCore.QRect(165, 370, 141, 31))
@@ -53,11 +53,17 @@ class Ui_MainWindow(object):
         self.possibleLabel = QtWidgets.QLabel(self.gradesBox)
         self.possibleLabel.setGeometry(QtCore.QRect(330, 410, 47, 13))
         self.possibleLabel.setObjectName("possibleLabel")
+        self.saveButton = QtWidgets.QPushButton(self.gradesBox)
+        self.saveButton.setGeometry(QtCore.QRect(10, 404, 141, 31))
+        self.saveButton.setObjectName("saveButton")
+        self.addButton_3 = QtWidgets.QPushButton(self.gradesBox)
+        self.addButton_3.setGeometry(QtCore.QRect(165, 404, 141, 31))
+        self.addButton_3.setObjectName("addButton_3")
         self.mockTestBox = QtWidgets.QGroupBox(self.centralwidget)
         self.mockTestBox.setGeometry(QtCore.QRect(500, 10, 501, 441))
         self.mockTestBox.setObjectName("mockTestBox")
         self.testButton = QtWidgets.QPushButton(self.mockTestBox)
-        self.testButton.setGeometry(QtCore.QRect(20, 140, 141, 23))
+        self.testButton.setGeometry(QtCore.QRect(20, 140, 141, 31))
         self.testButton.setObjectName("testButton")
         self.possibleEntryMock = QtWidgets.QDoubleSpinBox(self.mockTestBox)
         self.possibleEntryMock.setGeometry(QtCore.QRect(70, 30, 91, 21))
@@ -126,6 +132,8 @@ class Ui_MainWindow(object):
         self.removeButton.setText(_translate("MainWindow", "Remove"))
         self.earnedLabel.setText(_translate("MainWindow", "Earned:"))
         self.possibleLabel.setText(_translate("MainWindow", "Possible:"))
+        self.saveButton.setText(_translate("MainWindow", "Save"))
+        self.addButton_3.setText(_translate("MainWindow", "Load"))
         self.mockTestBox.setTitle(_translate("MainWindow", "Mock Test"))
         self.testButton.setText(_translate("MainWindow", "Test"))
         self.possibleLabelMock.setText(_translate("MainWindow", "Possible:"))
@@ -148,13 +156,3 @@ class Ui_MainWindow(object):
         self.actionOpen.setText(_translate("MainWindow", "Open..."))
         self.actionNew.setText(_translate("MainWindow", "New..."))
         self.actionSave.setText(_translate("MainWindow", "Save"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
