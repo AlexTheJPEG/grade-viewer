@@ -101,6 +101,9 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="maximum">
+      <double>1000.000000000000000</double>
+     </property>
     </widget>
     <widget class="QDoubleSpinBox" name="possibleEntry">
      <property name="geometry">
@@ -110,6 +113,9 @@
        <width>91</width>
        <height>21</height>
       </rect>
+     </property>
+     <property name="maximum">
+      <double>1000.000000000000000</double>
      </property>
     </widget>
     <widget class="QLabel" name="earnedLabel">
@@ -198,6 +204,9 @@
        <width>91</width>
        <height>21</height>
       </rect>
+     </property>
+     <property name="maximum">
+      <double>1000.000000000000000</double>
      </property>
     </widget>
     <widget class="QTextBrowser" name="mockTestResults">
@@ -346,6 +355,9 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="maximum">
+      <double>1000.000000000000000</double>
+     </property>
     </widget>
     <widget class="QDoubleSpinBox" name="possibleEntryMock3">
      <property name="geometry">
@@ -355,6 +367,9 @@
        <width>91</width>
        <height>21</height>
       </rect>
+     </property>
+     <property name="maximum">
+      <double>1000.000000000000000</double>
      </property>
     </widget>
    </widget>
