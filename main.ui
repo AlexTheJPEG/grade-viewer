@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>962</width>
+    <width>951</width>
     <height>461</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>962</width>
+    <width>951</width>
     <height>461</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>962</width>
+    <width>951</width>
     <height>461</height>
    </size>
   </property>
@@ -31,7 +31,7 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>431</width>
+      <width>421</width>
       <height>441</height>
      </rect>
     </property>
@@ -43,13 +43,22 @@
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>411</width>
+       <width>401</width>
        <height>281</height>
       </rect>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
      </property>
      <property name="editTriggers">
       <set>QAbstractItemView::NoEditTriggers</set>
      </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
      <column>
       <property name="text">
        <string>Earned</string>
@@ -76,7 +85,7 @@
       <rect>
        <x>10</x>
        <y>310</y>
-       <width>411</width>
+       <width>401</width>
        <height>55</height>
       </rect>
      </property>
@@ -110,8 +119,8 @@
     <widget class="QDoubleSpinBox" name="earnedEntry">
      <property name="geometry">
       <rect>
-       <x>330</x>
-       <y>376</y>
+       <x>320</x>
+       <y>375</y>
        <width>91</width>
        <height>21</height>
       </rect>
@@ -123,8 +132,8 @@
     <widget class="QDoubleSpinBox" name="possibleEntry">
      <property name="geometry">
       <rect>
-       <x>330</x>
-       <y>406</y>
+       <x>320</x>
+       <y>408</y>
        <width>91</width>
        <height>21</height>
       </rect>
@@ -136,8 +145,8 @@
     <widget class="QLabel" name="earnedLabel">
      <property name="geometry">
       <rect>
-       <x>281</x>
-       <y>380</y>
+       <x>270</x>
+       <y>379</y>
        <width>47</width>
        <height>13</height>
       </rect>
@@ -149,8 +158,8 @@
     <widget class="QLabel" name="possibleLabel">
      <property name="geometry">
       <rect>
-       <x>281</x>
-       <y>410</y>
+       <x>270</x>
+       <y>412</y>
        <width>47</width>
        <height>13</height>
       </rect>
@@ -189,7 +198,7 @@
    <widget class="QGroupBox" name="mockTestBox">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>440</x>
       <y>10</y>
       <width>501</width>
       <height>441</height>
