@@ -5,6 +5,7 @@ from PyQt5.QtCore import *
 from window import Ui_MainWindow
 
 import sys
+import math
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -23,7 +24,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         earned = self.earnedEntry.value()
         possible = self.possibleEntry.value()
         if possible:
-            grade = earned / possible * 100
+            grade = round(earned / possible * 100, 2)
             self.assignments.append({"earned": earned,
                                      "possible": possible,
                                      "grade": grade,
@@ -59,31 +60,31 @@ Your total grade: {sum(earned_sum)}/{sum(possible_sum)} ({final_grade}%) ({self.
             self.summary.setText("You have no assignments.")
 
     def letter_grade(self, grade):
-        if 98 <= grade:
+        if 98 <= math.floor(grade):
             return "A+"
-        elif 93 <= grade <= 97:
+        elif 93 <= math.floor(grade) <= 97:
             return "A"
-        elif 90 <= grade <= 92:
+        elif 90 <= math.floor(grade) <= 92:
             return "A-"
-        elif 87 <= grade <= 89:
+        elif 87 <= math.floor(grade) <= 89:
             return "B+"
-        elif 83 <= grade <= 86:
+        elif 83 <= math.floor(grade) <= 86:
             return "B"
-        elif 80 <= grade <= 82:
+        elif 80 <= math.floor(grade) <= 82:
             return "B-"
-        elif 77 <= grade <= 79:
+        elif 77 <= math.floor(grade) <= 79:
             return "C+"
-        elif 73 <= grade <= 76:
+        elif 73 <= math.floor(grade) <= 76:
             return "C"
-        elif 70 <= grade <= 72:
+        elif 70 <= math.floor(grade) <= 72:
             return "C-"
-        elif 67 <= grade <= 69:
+        elif 67 <= math.floor(grade) <= 69:
             return "D+"
-        elif 63 <= grade <= 66:
+        elif 63 <= math.floor(grade) <= 66:
             return "D"
-        elif 60 <= grade <= 62:
+        elif 60 <= math.floor(grade) <= 62:
             return "D-"
-        elif grade <= 59:
+        elif math.floor(grade) <= 59:
             return "F"
 
 
