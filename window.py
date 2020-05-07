@@ -14,6 +14,8 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(962, 461)
+        MainWindow.setMinimumSize(QtCore.QSize(962, 461))
+        MainWindow.setMaximumSize(QtCore.QSize(962, 461))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gradesBox = QtWidgets.QGroupBox(self.centralwidget)
