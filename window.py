@@ -21,6 +21,7 @@ class Ui_MainWindow(object):
         self.gradesBox.setObjectName("gradesBox")
         self.gradesTable = QtWidgets.QTableWidget(self.gradesBox)
         self.gradesTable.setGeometry(QtCore.QRect(10, 20, 461, 281))
+        self.gradesTable.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.gradesTable.setObjectName("gradesTable")
         self.gradesTable.setColumnCount(4)
         self.gradesTable.setRowCount(0)
