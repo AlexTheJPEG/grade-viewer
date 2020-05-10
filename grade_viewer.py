@@ -6,6 +6,16 @@ from window import Ui_MainWindow
 
 import sys
 import math
+import re
+import decimal
+
+grade_letters = ["A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "F"]
+
+
+def float_range(start, stop, step):
+  while start < stop:
+    yield float(start)
+    start += decimal.Decimal(step)
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -17,12 +27,15 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.addButton.clicked.connect(self.add_grade)
         self.removeButton.clicked.connect(self.remove_grade)
+        self.testButton.clicked.connect(self.mock_test)
 
         self.summary.setText("You have no assignments.")
 
+        self.grade_regex = r"Your\ total\ grade: (\d+\.\d+)/(\d+\.\d+)"
+
     def add_grade(self):
-        earned = self.earnedEntry.value()
-        possible = self.possibleEntry.value()
+        earned = round(self.earnedEntry.value(), 2)
+        possible = round(self.possibleEntry.value(), 2)
         if possible:
             grade = round(earned / possible * 100, 2)
             self.assignments.append({"earned": earned,
@@ -52,12 +65,52 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 earned_sum.append(assignment["earned"])
                 possible_sum.append(assignment["possible"])
 
-            final_grade = round(sum(earned_sum) / sum(possible_sum) * 100, 2)
+            earned_sum = round(sum(earned_sum), 2)
+            possible_sum = round(sum(possible_sum), 2)
+            final_grade = round((earned_sum / possible_sum) * 100, 2)
+
             self.summary.setText(f"""You have {len(self.assignments)} assignment{"s" if len(self.assignments) > 1 else ""}.
 
-Your total grade: {sum(earned_sum)}/{sum(possible_sum)} ({final_grade}%) ({self.letter_grade(final_grade)})""")
+Your total grade: {earned_sum}/{possible_sum} ({final_grade}%) ({self.letter_grade(final_grade)})""")
         else:
             self.summary.setText("You have no assignments.")
+
+    def mock_test(self):
+        possible = self.possibleEntryMock.value()
+        max_letter = self.maxLetterSelection.currentText()
+        max_letter_index = grade_letters.index(max_letter)
+        show_all = self.showAllResultsCheck.isChecked()
+
+        matches = re.findall(self.grade_regex, self.summary.toPlainText())
+        if len(matches) == 0 or possible == 0:
+            return
+        total_earned, total_possible = (float(n) for n in matches[0])
+        results_string = f"Your total grade: {total_earned}/{total_possible}\n"
+
+        # TODO: Implement verbose results
+        if not show_all:
+            # TODO: Add precision options
+            for earned in list(float_range(0, possible, 0.01)):
+                earned = round(float(earned), 2)
+
+                old_grade = round(total_earned / total_possible * 100, 2)
+                old_letter_index = grade_letters.index(self.letter_grade(old_grade))
+
+                new_grade = round((earned + total_earned) / (possible + total_possible) * 100, 2)
+                new_letter = self.letter_grade(new_grade)
+                new_letter_index = grade_letters.index(new_letter)
+
+                if new_letter_index <= max_letter_index and new_letter_index < old_letter_index:
+                    results_string += f"\nYou need at least a {earned}/{possible}:"
+                    results_string += f"\n{earned + total_earned}/{possible + total_possible} ({new_grade}%) ({new_letter})"
+                    break
+            else:
+                results_string += f"\nYou cannot get a{'n' if new_letter[0] in ('A', 'F') else ''} {max_letter}."
+                results_string += f"\nMaximum score with a {possible}/{possible}:"
+                results_string += f"\n{possible + total_earned}/{possible + total_possible} ({new_grade}%) ({new_letter})"
+
+            self.mockTestResults.setText(results_string)
+
 
     def letter_grade(self, grade):
         if 98 <= math.floor(grade):
