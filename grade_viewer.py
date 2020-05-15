@@ -9,8 +9,21 @@ import math
 import re
 import decimal
 
-grade_letters = ["A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "F"]
-
+grade_letters = {
+    range(98, 101): "A+",
+    range(93, 98):  "A",
+    range(90, 93):  "A-",
+    range(87, 90):  "B+",
+    range(83, 87):  "B",
+    range(80, 83):  "B-",
+    range(77, 80):  "C+",
+    range(73, 77):  "C",
+    range(70, 73):  "C-",
+    range(67, 70):  "D+",
+    range(63, 67):  "D",
+    range(60, 63):  "D-",
+    range(0,  60):  "F"
+}
 
 def float_range(start, stop, step):
   while start < stop:
@@ -78,7 +91,7 @@ Your total grade: {earned_sum}/{possible_sum} ({final_grade}%) ({self.letter_gra
     def mock_test(self):
         possible = self.possibleEntryMock.value()
         max_letter = self.maxLetterSelection.currentText()
-        max_letter_index = grade_letters.index(max_letter)
+        max_letter_index = list(grade_letters.values()).index(max_letter)
         show_all = self.showAllResultsCheck.isChecked()
 
         matches = re.findall(self.grade_regex, self.summary.toPlainText())
@@ -92,53 +105,28 @@ Your total grade: {earned_sum}/{possible_sum} ({final_grade}%) ({self.letter_gra
             # TODO: Add precision options
             for earned in list(float_range(0, possible, 0.01)):
                 earned = round(float(earned), 2)
-
-                old_grade = round(total_earned / total_possible * 100, 2)
-                old_letter_index = grade_letters.index(self.letter_grade(old_grade))
-
                 new_grade = round((earned + total_earned) / (possible + total_possible) * 100, 2)
                 new_letter = self.letter_grade(new_grade)
-                new_letter_index = grade_letters.index(new_letter)
+                new_letter_index = list(grade_letters.values()).index(new_letter)
 
-                if new_letter_index <= max_letter_index and new_letter_index < old_letter_index:
-                    results_string += f"\nYou need at least a {earned}/{possible}:"
+                if new_letter_index <= max_letter_index:
+                    needed_grade = round(earned / possible * 100, 2)
+                    needed_letter = self.letter_grade(needed_grade)
+                    results_string += f"\nYou need at least a {earned}/{possible} ({needed_grade}%) ({needed_letter}):"
                     results_string += f"\n{earned + total_earned}/{possible + total_possible} ({new_grade}%) ({new_letter})"
                     break
             else:
                 results_string += f"\nYou cannot get a{'n' if new_letter[0] in ('A', 'F') else ''} {max_letter}."
-                results_string += f"\nMaximum score with a {possible}/{possible}:"
+                results_string += f"\nMaximum score with a {possible}/{possible} (100%) (A+):"
                 results_string += f"\n{possible + total_earned}/{possible + total_possible} ({new_grade}%) ({new_letter})"
 
             self.mockTestResults.setText(results_string)
 
 
     def letter_grade(self, grade):
-        if 98 <= math.floor(grade):
-            return "A+"
-        elif 93 <= math.floor(grade) <= 97:
-            return "A"
-        elif 90 <= math.floor(grade) <= 92:
-            return "A-"
-        elif 87 <= math.floor(grade) <= 89:
-            return "B+"
-        elif 83 <= math.floor(grade) <= 86:
-            return "B"
-        elif 80 <= math.floor(grade) <= 82:
-            return "B-"
-        elif 77 <= math.floor(grade) <= 79:
-            return "C+"
-        elif 73 <= math.floor(grade) <= 76:
-            return "C"
-        elif 70 <= math.floor(grade) <= 72:
-            return "C-"
-        elif 67 <= math.floor(grade) <= 69:
-            return "D+"
-        elif 63 <= math.floor(grade) <= 66:
-            return "D"
-        elif 60 <= math.floor(grade) <= 62:
-            return "D-"
-        elif math.floor(grade) <= 59:
-            return "F"
+        for r, g in grade_letters.items():
+            if math.floor(grade) in r:
+                return g
 
 
 if __name__ == '__main__':
