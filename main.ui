@@ -26,7 +26,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QGroupBox" name="gradesBox">
+   <widget class="QGroupBox" name="grades_box">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -38,7 +38,7 @@
     <property name="title">
      <string>Grades</string>
     </property>
-    <widget class="QTableWidget" name="gradesTable">
+    <widget class="QTableWidget" name="grades_table">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -90,7 +90,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QPushButton" name="addButton">
+    <widget class="QPushButton" name="add_button">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -103,7 +103,7 @@
       <string>Add</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="removeButton">
+    <widget class="QPushButton" name="remove_button">
      <property name="geometry">
       <rect>
        <x>130</x>
@@ -116,7 +116,7 @@
       <string>Remove</string>
      </property>
     </widget>
-    <widget class="QDoubleSpinBox" name="earnedEntry">
+    <widget class="QDoubleSpinBox" name="earned_entry">
      <property name="geometry">
       <rect>
        <x>320</x>
@@ -129,7 +129,7 @@
       <double>1000.000000000000000</double>
      </property>
     </widget>
-    <widget class="QDoubleSpinBox" name="possibleEntry">
+    <widget class="QDoubleSpinBox" name="possible_entry">
      <property name="geometry">
       <rect>
        <x>320</x>
@@ -142,7 +142,7 @@
       <double>1000.000000000000000</double>
      </property>
     </widget>
-    <widget class="QLabel" name="earnedLabel">
+    <widget class="QLabel" name="earned_label">
      <property name="geometry">
       <rect>
        <x>270</x>
@@ -155,7 +155,7 @@
       <string>Earned:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="possibleLabel">
+    <widget class="QLabel" name="possible_label">
      <property name="geometry">
       <rect>
        <x>270</x>
@@ -168,7 +168,7 @@
       <string>Possible:</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="saveButton">
+    <widget class="QPushButton" name="save_button">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -181,7 +181,7 @@
       <string>Save</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="loadButton">
+    <widget class="QPushButton" name="load_button">
      <property name="geometry">
       <rect>
        <x>130</x>
@@ -195,7 +195,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QGroupBox" name="mockTestBox">
+   <widget class="QGroupBox" name="mock_test_box">
     <property name="geometry">
      <rect>
       <x>440</x>
@@ -207,7 +207,7 @@
     <property name="title">
      <string>Mock Test</string>
     </property>
-    <widget class="QPushButton" name="testButton">
+    <widget class="QPushButton" name="mock_test_button">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -220,7 +220,7 @@
       <string>Test</string>
      </property>
     </widget>
-    <widget class="QDoubleSpinBox" name="possibleEntryMock">
+    <widget class="QDoubleSpinBox" name="possible_entry_mock">
      <property name="geometry">
       <rect>
        <x>70</x>
@@ -233,7 +233,7 @@
       <double>1000.000000000000000</double>
      </property>
     </widget>
-    <widget class="QTextBrowser" name="mockTestResults">
+    <widget class="QTextBrowser" name="mock_test_results">
      <property name="geometry">
       <rect>
        <x>181</x>
@@ -243,7 +243,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="possibleLabelMock">
+    <widget class="QLabel" name="possible_label_mock">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -256,7 +256,7 @@
       <string>Possible:</string>
      </property>
     </widget>
-    <widget class="QComboBox" name="maxLetterSelection">
+    <widget class="QComboBox" name="max_letter_selection">
      <property name="geometry">
       <rect>
        <x>85</x>
@@ -331,7 +331,7 @@
       </property>
      </item>
     </widget>
-    <widget class="QLabel" name="maxLetterLabel">
+    <widget class="QLabel" name="max_letter_label">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -344,7 +344,7 @@
       <string>Max letter:</string>
      </property>
     </widget>
-    <widget class="QCheckBox" name="showAllResultsCheck">
+    <widget class="QCheckBox" name="show_all_results_check">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -357,7 +357,7 @@
       <string>Show all results?</string>
      </property>
     </widget>
-    <widget class="QLabel" name="extraAssignmentsLabel">
+    <widget class="QLabel" name="extra_assignments_label">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -370,7 +370,7 @@
       <string>Extra assignments:</string>
      </property>
     </widget>
-    <widget class="QDoubleSpinBox" name="possibleEntryMock2">
+    <widget class="QDoubleSpinBox" name="possible_entry_mock_2">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -383,7 +383,7 @@
       <double>1000.000000000000000</double>
      </property>
     </widget>
-    <widget class="QDoubleSpinBox" name="possibleEntryMock3">
+    <widget class="QDoubleSpinBox" name="possible_entry_mock_3">
      <property name="geometry">
       <rect>
        <x>20</x>
